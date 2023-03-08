@@ -2,9 +2,9 @@
 {
     private static void Main(string[] args)
     {
-        var selectedWord = "test";
+        var selectedWord = RandomStringSelector(_randomStrings);
         var controlString = string.Empty;
-        var lives = 3;
+        var lives = 10;
         var timesPlayed = 0;
         Console.WriteLine($"Please guess the word that has {selectedWord.Length} characters!");
         for (int i = 0; i < selectedWord.Length; i++)
@@ -55,5 +55,22 @@
         {
             Console.WriteLine($"GGs! the right word was:\n{selectedWord}");
         }
+    }
+
+    private static List<string> _randomStrings = new List<string>()
+    {
+        "tsubasaozora",
+        "kajirohyuga",
+        "taromisaki",
+        "kenwakashimazu",
+        "takeshisawada",
+        "hiroshijito",
+        "berkcankucukoglu"
+    };
+    private static string RandomStringSelector(List<string> list)
+    {
+        Random randomNumber = new Random();
+        var pick = randomNumber.Next(0,list.Count);
+        return list[pick];
     }
 }
